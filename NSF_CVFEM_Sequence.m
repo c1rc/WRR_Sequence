@@ -29,7 +29,7 @@ close all
 %% Importing Sequence Output File
 ncfile='case54.nc';
 %Run the following code to import the sequence output file NS
-sequence_import_3_generalized
+sequenceImport
 
 %% Basic Settings
 %Basic Geometric data--set for base-case in wrr paper June 2022
@@ -141,9 +141,9 @@ for tstep=1:500 %Main time loop
         ytop=etabed(tstep,:);
     end
 
-    %We use the code plotstfac_to_voller to plot the stratigraphy and import the shapes as x and y values with the suffix se(shelfedge), sf(shoreface), and g(fluvial)
+    %We use the code plotStratigraphy to plot the stratigraphy and import the shapes as x and y values with the suffix se(shelfedge), sf(shoreface), and g(fluvial)
     pl_tstep=tstep+1;
-    plotstfac_to_voller
+    plotStratigraphy
     
     ncolpre=ncol; %store previous value of nodes on each column 
     ncol=round((ytop-ybot)/Dely)+1; %calculate new value. Will only change if
